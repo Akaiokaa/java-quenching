@@ -35,17 +35,19 @@ public class Practice {
      */
     public static String shortestWord(Set<String> words) {
         //"kumquat", "date", "fig", "grape", "cherry"
-        if (words.isEmpty()) { throw new IllegalArgumentException(); }
         if (words == null) { throw new NullPointerException(); }
+        if (words.isEmpty()) { throw new IllegalArgumentException(); }
+        
         int length = Integer.MAX_VALUE;
         String shortest = "";
         for(String word: words){
             if (word.length() < length) {
                 shortest = word;
                 length = word.length();
-            } else if (word.compareTo(shortest) == -1) {
-                shortest = word
-                ;
+            } else if (word.length() == length) {
+                if (word.compareTo(shortest) < 0) {
+                    shortest = word;
+                }
             }
         }
 
